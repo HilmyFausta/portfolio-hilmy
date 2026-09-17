@@ -44,19 +44,21 @@
   const CATCH_TARGET = 10;
   const TIME_LIMIT_MS = 20000;
   const MAX_FALLING = 5;
-  const SPAWN_EVERY_MS = 650;
+  const SPAWN_EVERY_MS = 750;
+  const BASKET_BOTTOM_GAP = 46; // distance from the very bottom edge
 
   const ctx = canvas.getContext('2d');
   let W, H, iconSize, basketW, basketH;
   let dpr = Math.min(window.devicePixelRatio || 1, 2);
 
   function resize() {
-    W = overlay.clientWidth;
-    H = overlay.clientHeight;
+    // Measure the box the canvas actually got from the flex layout
+    // (overlay's total height would include the header/hint rows too).
+    const rect = canvas.getBoundingClientRect();
+    W = rect.width;
+    H = rect.height;
     canvas.width = W * dpr;
     canvas.height = H * dpr;
-    canvas.style.width = W + 'px';
-    canvas.style.height = H + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     iconSize = Math.max(34, Math.min(56, W * 0.09));
     basketW = Math.max(70, Math.min(110, W * 0.2));
@@ -93,12 +95,12 @@
       slug: icon.slug,
       x: Math.random() * (W - iconSize) + iconSize / 2,
       y: -iconSize,
-      speed: H * (0.00035 + Math.random() * 0.00025)
+      speed: H * (0.00018 + Math.random() * 0.00014)
     });
   }
 
   function update(dt) {
-    const basketY = H - basketH - 14;
+    const basketY = H - basketH - BASKET_BOTTOM_GAP;
     falling.forEach((f) => (f.y += f.speed * dt));
 
     falling = falling.filter((f) => {
@@ -121,7 +123,7 @@
     ctx.clearRect(0, 0, W, H);
 
     // basket
-    const basketY = H - basketH - 14;
+    const basketY = H - basketH - BASKET_BOTTOM_GAP;
     ctx.fillStyle = 'rgba(253,106,73,0.95)';
     ctx.beginPath();
     const r = 10;
