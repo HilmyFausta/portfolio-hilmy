@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SIGBOT — Notifikasi Tiket ManageEngine — Hilmy Fausta</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Hilmy Fausta</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#projects">Project lain</a></li>
+      <li><a href="../index.html#contact">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+  <a class="detail-back" href="../index.html#projects">&larr; Kembali ke Portfolio</a>
+
+  <div class="detail-hero">
+    <img src="../assets/images/projects/sigbot.jpg" alt="SIGBOT — Notifikasi Tiket ManageEngine" data-placeholder-label="assets/images/projects/sigbot.jpg">
+  </div>
+
+  <div class="detail-head">
+    <h1>SIGBOT — Notifikasi Tiket ManageEngine</h1>
+    <p>Notifikasi WhatsApp otomatis setiap ada tiket baru, mendekati deadline, atau macet — lengkap dengan saran dari AI lokal.</p>
+    <div class="detail-tags"><span class="tag">n8n</span><span class="tag">WAHA</span><span class="tag">Ollama</span><span class="tag">Python</span></div>
+  </div>
+
+  <div class="detail-body">
+
+    <h2>Masalah yang diselesaikan</h2>
+    <p>Tim helpdesk perlu tahu status tiket ManageEngine ServiceDesk Plus secara real-time tanpa harus terus-menerus
+    membuka dashboard. API ManageEngine sendiri punya keterbatasan — hanya bisa menarik 10 tiket terbaru sekali
+    panggil — sehingga dibutuhkan pendekatan lain untuk data yang lebih lengkap.</p>
+
+    <h2>Cara kerja</h2>
+    <ul>
+      <li>Script Python terpisah berjalan lewat cronjob, mengunduh tiket ke database JSON lokal (bootstrap
+          1000 tiket saat database masih kosong, lalu mode normal menarik 50 tiket terbaru)</li>
+      <li>Workflow n8n bernama <b>SIGBOT</b> berjalan tiap 3 menit: membaca JSON hasil cronjob, memfilter tiket
+          berdasarkan grup "Site Support Helpdesk Tuban", lalu mengkategorikannya menjadi tiket baru, mendekati
+          deadline, overdue, macet, atau selesai</li>
+      <li>Untuk tiap kategori, AI lokal (Ollama) membantu menyusun saran singkat sebelum pesan diformat dan
+          dikirim ke grup WhatsApp lewat WAHA</li>
+    </ul>
+
+    <h2>Detail teknis</h2>
+    <p>Pelacakan notifikasi yang sudah terkirim (supaya tidak dobel) disimpan di static data workflow n8n, bukan
+    di database tiket itu sendiri — menjaga logika dedup tetap terpisah dari data mentah tiket.</p>
+
+  </div>
+</main>
+
+<footer>&copy; 2026 Hilmy Fausta Pratama.</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

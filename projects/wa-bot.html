@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WA Bot Personal — Hilmy Fausta</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a href="../index.html" class="nav-mark"><span class="dot"></span> Hilmy Fausta</a>
+    <ul class="nav-links">
+      <li><a href="../index.html#projects">Project lain</a></li>
+      <li><a href="../index.html#contact">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+  <a class="detail-back" href="../index.html#projects">&larr; Kembali ke Portfolio</a>
+
+  <div class="detail-hero">
+    <img src="../assets/images/projects/wa-bot.jpg" alt="WA Bot Personal" data-placeholder-label="assets/images/projects/wa-bot.jpg">
+  </div>
+
+  <div class="detail-head">
+    <h1>WA Bot Personal</h1>
+    <p>Bot WhatsApp pribadi serba bisa — AI, stiker, mini game, dan to-do list dalam satu nomor.</p>
+    <div class="detail-tags"><span class="tag">n8n</span><span class="tag">WAHA</span><span class="tag">Groq API</span><span class="tag">Docker</span><span class="tag">Azure</span></div>
+  </div>
+
+  <div class="detail-body">
+
+    <h2>Latar belakang</h2>
+    <p>Setelah terbiasa membangun bot notifikasi untuk kebutuhan kantor selama magang, saya ingin punya versi
+    personal yang lebih santai dan multifungsi — dipakai dari nomor WhatsApp pribadi sendiri, bukan nomor terpisah.</p>
+
+    <h2>Fitur</h2>
+    <ul>
+      <li><code>/menu</code> — menampilkan seluruh fitur yang tersedia</li>
+      <li><code>/ask</code> — tanya jawab dengan AI (dijawab lewat Groq API)</li>
+      <li><code>/stiker</code> — kirim atau reply foto, otomatis jadi stiker</li>
+      <li><code>/game</code> — mini game seperti tic-tac-toe, bisa dimainkan berdua</li>
+      <li><code>/list</code> — catatan/to-do list sederhana</li>
+    </ul>
+
+    <h2>Arsitektur & perjalanan teknis</h2>
+    <p>Awalnya dijalankan lokal di laptop pribadi dengan kombinasi n8n + Ollama (model Qwen), lalu dipindah
+    sepenuhnya ke Microsoft Azure supaya tidak bergantung laptop menyala. Stack sekarang jalan penuh lewat
+    Docker Compose: layanan <code>sig-n8n</code>, <code>sig-waha</code>, dan sebuah sidecar Node.js khusus
+    (<code>sticker-sidecar</code>) untuk memproses fitur stiker. Untuk <code>/ask</code>, sempat memakai model
+    lokal, tapi akhirnya beralih penuh ke Groq API supaya tetap gratis tanpa membebani resource VM.</p>
+
+    <h2>Yang dipelajari</h2>
+    <p>Memindahkan sebuah stack dari mesin lokal ke cloud tanpa mengubah alur kerja WhatsApp yang sedang aktif,
+    serta memisahkan tanggung jawab tiap service (bot logic, gateway WA, dan pemrosesan media) supaya lebih
+    mudah dirawat.</p>
+
+  </div>
+</main>
+
+<footer>&copy; 2026 Hilmy Fausta Pratama.</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
