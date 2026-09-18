@@ -58,7 +58,6 @@ a{ color: inherit; }
 }
 
 section{ padding: var(--space-6) 0; }
-#skills, #projects{ background: var(--cream-dim); }
 @media (max-width: 640px){
   section{ padding: var(--space-5) 0; }
 }
@@ -75,7 +74,7 @@ p{ margin: 0; color: var(--ink-soft); }
   align-items: flex-end;
   justify-content: space-between;
   gap: var(--space-3);
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-4);
   border-bottom: 1px solid var(--line);
   padding-bottom: var(--space-2);
 }
