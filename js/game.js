@@ -72,7 +72,7 @@
       { slug: 'python', name: 'Python' }
     ];
 
-    const CATCH_TARGET = 10;
+    const CATCH_TARGET = 5;
     const TIME_LIMIT_MS = 22000;
     const MAX_FALLING = 5;
     const SPAWN_EVERY_MS = 750;

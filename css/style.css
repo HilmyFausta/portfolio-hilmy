@@ -29,7 +29,7 @@
   --space-3: 24px;
   --space-4: 40px;
   --space-5: 64px;
-  --space-6: 96px;
+  --space-6: 72px;
 }
 
 *{ box-sizing: border-box; }
@@ -88,7 +88,7 @@ p{ margin: 0; color: var(--ink-soft); }
 /* ---------- Nav ---------- */
 .nav{
   position: sticky; top: 0; z-index: 40;
-  background: rgba(251,247,241,.88);
+  background: rgba(251,247,241,.97);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
 }
@@ -310,6 +310,29 @@ footer{ text-align: center; padding: var(--space-4) 0; color: var(--ink-soft); f
 }
 .game-end[hidden]{ display: none; }
 .game-end h2{ color: var(--cream); }
+
+.game-intro-banner{
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none; text-align: center; padding: 0 24px; z-index: 5;
+}
+.game-intro-banner span{
+  display: inline-block;
+  font-size: clamp(1.5rem, 5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--coral);
+  text-shadow: 3px 3px 0 rgba(0,0,0,.3);
+  animation: bannerIn 2.6s ease forwards;
+}
+@keyframes bannerIn{
+  0%   { opacity: 0; transform: scale(.82) rotate(-3deg); }
+  14%  { opacity: 1; transform: scale(1) rotate(-2deg); }
+  78%  { opacity: 1; transform: scale(1) rotate(-2deg); }
+  100% { opacity: 0; transform: scale(1.06) rotate(-2deg); }
+}
+@media (prefers-reduced-motion: reduce){
+  .game-intro-banner span{ animation: none; opacity: 1; transform: none; }
+}
 
 /* ---------- Project detail page ---------- */
 .detail-back{

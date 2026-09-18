@@ -13,13 +13,14 @@
 <div id="game-overlay">
   <div class="game-top">
     <span class="game-title">tangkap simbolnya</span>
-    <span class="game-score">Skor: <span id="game-score">0</span></span>
+    <span class="game-score">Progress: <span id="game-score">0</span>/5</span>
     <div style="display:flex;gap:8px">
       <button id="mute-toggle" type="button" aria-pressed="false">Suara: Aktif</button>
       <button id="skip-intro" type="button">Lewati →</button>
     </div>
   </div>
   <canvas id="game-canvas" aria-label="Mini game menangkap simbol skill"></canvas>
+  <div class="game-intro-banner"><span>Tangkap skill icon<br>untuk membuka portofolio!</span></div>
   <p class="game-hint">Geser jari / mouse untuk gerakkan keranjang — hindari bomnya!</p>
 
   <div class="game-end" id="game-end" hidden>
