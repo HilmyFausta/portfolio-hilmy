@@ -53,24 +53,11 @@
       return;
     }
 
-    const ICONS = [
-      { slug: 'docker', name: 'Docker' },
-      { slug: 'nginx', name: 'Nginx' },
-      { slug: 'linux', name: 'Linux' },
-      { slug: 'github', name: 'GitHub' },
-      { slug: 'n8n', name: 'n8n' },
-      { slug: 'whatsapp', name: 'WhatsApp' },
-      { slug: 'ollama', name: 'Ollama' },
-      { slug: 'azure', name: 'Azure', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-plain.svg' },
-      { slug: 'html5', name: 'HTML5' },
-      { slug: 'css', name: 'CSS3' },
-      { slug: 'javascript', name: 'JavaScript' },
-      { slug: 'c', name: 'C' },
-      { slug: 'cplusplus', name: 'C++' },
-      { slug: 'postgresql', name: 'PostgreSQL' },
-      { slug: 'ubiquiti', name: 'UniFi' },
-      { slug: 'python', name: 'Python' }
-    ];
+    // Falling icons come straight from js/data.js's SKILLS list — add
+    // a skill there and it's automatically eligible to appear here too.
+    // Skills without a real icon (the `emoji` fallback ones) are skipped
+    // since the game draws actual images, not text badges.
+    const ICONS = (typeof SKILLS !== 'undefined' ? SKILLS : []).filter((s) => !s.emoji);
 
     const CATCH_TARGET = 5;
     const TIME_LIMIT_MS = 22000;

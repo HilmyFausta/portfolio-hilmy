@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title id="page-title">Project — Hilmy Fausta</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-mark"><span class="dot"></span> Hilmy Fausta</a>
+    <ul class="nav-links">
+      <li><a href="index.html#projects">Project lain</a></li>
+      <li><a href="index.html#contact">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap" id="project-detail">
+  <p>Memuat...</p>
+</main>
+
+<footer>© 2026 Hilmy Fausta Pratama.</footer>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  (function () {
+    const params = new URLSearchParams(location.search);
+    const slug = params.get('slug');
+    const project = PROJECTS.find((p) => p.slug === slug);
+    const root = document.getElementById('project-detail');
+
+    if (!project) {
+      root.innerHTML = `
+        <a class="detail-back" href="index.html#projects">&larr; Kembali ke Portfolio</a>
+        <div class="detail-head"><h1>Project tidak ditemukan</h1>
+        <p>Coba kembali ke halaman utama dan pilih project dari daftar.</p></div>
+      `;
+      return;
+    }
+
+    document.title = `${project.title} — Hilmy Fausta`;
+    document.getElementById('page-title').textContent = document.title;
+
+    const tagsHtml = project.tags.map((t) => `<span class="tag">${t}</span>`).join('');
+    const bodyHtml = project.body.map((b) => `<h2>${b.heading}</h2><p>${b.text}</p>`).join('');
+
+    root.innerHTML = `
+      <a class="detail-back" href="index.html#projects">&larr; Kembali ke Portfolio</a>
+      <div class="detail-hero">
+        <img src="${project.image}" alt="${project.title}" data-placeholder-label="${project.image}">
+      </div>
+      <div class="detail-head">
+        <h1>${project.title}</h1>
+        <p>${project.tagline}</p>
+        <div class="detail-tags">${tagsHtml}</div>
+      </div>
+      <div class="detail-body">${bodyHtml}</div>
+    `;
+
+    root.querySelectorAll('img[data-placeholder-label]').forEach((img) => {
+      img.addEventListener('error', () => {
+        const box = document.createElement('div');
+        box.className = 'ph-missing';
+        box.setAttribute('data-label', img.dataset.placeholderLabel);
+        img.replaceWith(box);
+      });
+    });
+  })();
+</script>
+</body>
+</html>

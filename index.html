@@ -58,9 +58,9 @@
         <a href="#contact" class="btn btn-ghost">Hubungi Saya</a>
       </div>
       <div class="stats">
-        <div class="stat"><b>5</b><span>Project dikembangkan</span></div>
-        <div class="stat"><b>4</b><span>Program kerja Sosmas</span></div>
-        <div class="stat"><b>16</b><span>Tools & bahasa dipakai</span></div>
+        <div class="stat"><b id="stat-projects">0</b><span>Project dikembangkan</span></div>
+        <div class="stat"><b id="stat-programs">0</b><span>Program kerja Sosmas</span></div>
+        <div class="stat"><b id="stat-skills">0</b><span>Tools & bahasa dipakai</span></div>
       </div>
     </div>
     <div class="hero-figure">
@@ -88,25 +88,7 @@
     <div class="section-head">
       <h2>Skill & Tools</h2>
     </div>
-    <div class="skills-grid">
-      <span class="skill-chip" data-slug="docker"><img src="https://cdn.simpleicons.org/docker" alt="" width="18" height="18">Docker</span>
-      <span class="skill-chip" data-slug="nginx"><img src="https://cdn.simpleicons.org/nginx" alt="" width="18" height="18">Nginx</span>
-      <span class="skill-chip" data-slug="linux"><img src="https://cdn.simpleicons.org/linux" alt="" width="18" height="18">Linux</span>
-      <span class="skill-chip" data-slug="github"><img src="https://cdn.simpleicons.org/github" alt="" width="18" height="18">Git & GitHub</span>
-      <span class="skill-chip" data-slug="n8n"><img src="https://cdn.simpleicons.org/n8n" alt="" width="18" height="18">n8n</span>
-      <span class="skill-chip" data-slug="whatsapp"><img src="https://cdn.simpleicons.org/whatsapp" alt="" width="18" height="18">WhatsApp API</span>
-      <span class="skill-chip" data-slug="ollama"><img src="https://cdn.simpleicons.org/ollama" alt="" width="18" height="18">Ollama</span>
-      <span class="skill-chip" data-slug="azure"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-plain.svg" alt="" width="18" height="18">Azure</span>
-      <span class="skill-chip">📡 LibreNMS</span>
-      <span class="skill-chip">🎫 ManageEngine</span>
-      <span class="skill-chip" data-slug="ubiquiti"><img src="https://cdn.simpleicons.org/ubiquiti" alt="" width="18" height="18">UniFi</span>
-      <span class="skill-chip" data-slug="html5"><img src="https://cdn.simpleicons.org/html5" alt="" width="18" height="18">HTML5</span>
-      <span class="skill-chip" data-slug="css"><img src="https://cdn.simpleicons.org/css" alt="" width="18" height="18">CSS3</span>
-      <span class="skill-chip" data-slug="javascript"><img src="https://cdn.simpleicons.org/javascript" alt="" width="18" height="18">JavaScript</span>
-      <span class="skill-chip" data-slug="c"><img src="https://cdn.simpleicons.org/c" alt="" width="18" height="18">C</span>
-      <span class="skill-chip" data-slug="cplusplus"><img src="https://cdn.simpleicons.org/cplusplus" alt="" width="18" height="18">C++</span>
-      <span class="skill-chip" data-slug="postgresql"><img src="https://cdn.simpleicons.org/postgresql" alt="" width="18" height="18">PostgreSQL</span>
-    </div>
+    <div class="skills-grid" id="skills-grid"></div>
   </section>
 
   <!-- ============ EXPERIENCE ============ -->
@@ -114,53 +96,7 @@
     <div class="section-head">
       <h2>Pengalaman & Organisasi</h2>
     </div>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-role">Magang</div>
-        <h3>Unit of Tech, Asset & Site Operations — SIG Pabrik Tuban</h3>
-        <p>Membangun sistem notifikasi WA otomatis untuk monitoring jaringan (LibreNMS) dan tiket helpdesk
-           (ManageEngine), serta web checklist preventive maintenance aset.</p>
-      </div>
-      <div class="tl-item">
-        <div class="tl-role">Organisasi</div>
-        <h3>Wakil Ketua Departemen Sosial Masyarakat — Zenitron</h3>
-        <p>Mengkoordinasi 4 program kerja sepanjang periode kepengurusan.</p>
-        <div class="proker-grid">
-          <a class="proker-card" href="#">
-            <img src="assets/images/zenitron/rotasi-ramadhan.jpg" alt="Rotasi Ramadhan"
-                 data-placeholder-label="assets/images/zenitron/rotasi-ramadhan.jpg">
-            <div class="proker-card-body">
-              <h4>Rotasi Ramadhan</h4>
-              <p>Penggalangan dana & bagi takjil bersama Aliansi Mahasiswa Tuban, kolaborasi Forda & BEM se-Tuban.</p>
-            </div>
-          </a>
-          <a class="proker-card" href="#">
-            <img src="assets/images/zenitron/z-sapa.jpg" alt="Z-Sapa"
-                 data-placeholder-label="assets/images/zenitron/z-sapa.jpg">
-            <div class="proker-card-body">
-              <h4>Z-Sapa</h4>
-              <p>Kunjungan dan interaksi lintas generasi bersama lansia di Yayasan Karya Luhur Bina Asih.</p>
-            </div>
-          </a>
-          <a class="proker-card" href="#">
-            <img src="assets/images/zenitron/z-clean.jpg" alt="Z-Clean"
-                 data-placeholder-label="assets/images/zenitron/z-clean.jpg">
-            <div class="proker-card-body">
-              <h4>Z-Clean</h4>
-              <p>Bersih-bersih pantai & tanam bibit mangrove di Pantai Mangrove Tuban.</p>
-            </div>
-          </a>
-          <a class="proker-card" href="#">
-            <img src="assets/images/zenitron/z-smile.jpg" alt="Z-Smile"
-                 data-placeholder-label="assets/images/zenitron/z-smile.jpg">
-            <div class="proker-card-body">
-              <h4>Z-Smile</h4>
-              <p>Pembelajaran dan pendampingan kreatif untuk anak-anak panti asuhan.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
+    <div class="timeline" id="experience-timeline"></div>
   </section>
 
   <!-- ============ PROJECTS ============ -->
@@ -168,75 +104,7 @@
     <div class="section-head">
       <h2>Project</h2>
     </div>
-    <div class="project-grid">
-
-      <a class="project-card feature" href="projects/wa-bot.html">
-        <div class="project-media">
-          <img src="assets/images/projects/wa-bot.jpg" alt="WA Bot Personal"
-               data-placeholder-label="assets/images/projects/wa-bot.jpg">
-        </div>
-        <div class="project-body">
-          <h3>WA Bot Personal</h3>
-          <p>Bot WhatsApp serba bisa: tanya AI, ubah foto jadi stiker, main game bareng teman, sampai catatan
-             to-do — jalan di Azure lewat n8n, WAHA, dan Groq API.</p>
-          <div class="project-tags"><span class="tag">n8n</span><span class="tag">WAHA</span><span class="tag">Docker</span><span class="tag">Azure</span></div>
-          <span class="project-link">Lihat detail →</span>
-        </div>
-      </a>
-
-      <a class="project-card" href="projects/sigbot.html">
-        <div class="project-media">
-          <img src="assets/images/projects/sigbot.jpg" alt="SIGBOT"
-               data-placeholder-label="assets/images/projects/sigbot.jpg">
-        </div>
-        <div class="project-body">
-          <h3>SIGBOT</h3>
-          <p>Notifikasi WA otomatis untuk tiket ManageEngine ServiceDesk, dengan saran AI lokal.</p>
-          <div class="project-tags"><span class="tag">n8n</span><span class="tag">Ollama</span><span class="tag">Python</span></div>
-          <span class="project-link">Lihat detail →</span>
-        </div>
-      </a>
-
-      <a class="project-card" href="projects/librenms-notif.html">
-        <div class="project-media">
-          <img src="assets/images/projects/librenms-notif.jpg" alt="Notifikasi LibreNMS"
-               data-placeholder-label="assets/images/projects/librenms-notif.jpg">
-        </div>
-        <div class="project-body">
-          <h3>Notifikasi Jaringan LibreNMS</h3>
-          <p>Sistem notifikasi WA saat switch/jaringan down, dibangun dari nol termasuk instalasi LibreNMS-nya.</p>
-          <div class="project-tags"><span class="tag">LibreNMS</span><span class="tag">SNMP</span><span class="tag">n8n</span></div>
-          <span class="project-link">Lihat detail →</span>
-        </div>
-      </a>
-
-      <a class="project-card" href="projects/pmsig.html">
-        <div class="project-media">
-          <img src="assets/images/projects/pmsig.jpg" alt="Web PM SIG"
-               data-placeholder-label="assets/images/projects/pmsig.jpg">
-        </div>
-        <div class="project-body">
-          <h3>Web PM SIG</h3>
-          <p>Checklist preventive maintenance untuk aset PC, laptop, printer, dan switch kantor.</p>
-          <div class="project-tags"><span class="tag">Web App</span><span class="tag">PM2</span></div>
-          <span class="project-link">Lihat detail →</span>
-        </div>
-      </a>
-
-      <a class="project-card" href="projects/bukang.html">
-        <div class="project-media">
-          <img src="assets/images/projects/bukang.jpg" alt="Buku Angkatan"
-               data-placeholder-label="assets/images/projects/bukang.jpg">
-        </div>
-        <div class="project-body">
-          <h3>Buku Angkatan</h3>
-          <p>Web sederhana yang terhubung ke Google Sheets & Slides untuk pengerjaan buku angkatan bareng-bareng.</p>
-          <div class="project-tags"><span class="tag">Google Apps Script</span></div>
-          <span class="project-link">Lihat detail →</span>
-        </div>
-      </a>
-
-    </div>
+    <div class="project-grid" id="project-grid"></div>
   </section>
 
   <!-- ============ CONTACT ============ -->
@@ -246,11 +114,7 @@
         <h2>Yuk ngobrol.</h2>
         <p style="color:rgba(251,247,241,.75)">Terbuka untuk kolaborasi, magang, atau sekadar diskusi infra.</p>
       </div>
-      <div class="contact-links">
-        <a href="mailto:hilmy@example.com">Email</a>
-        <a href="https://github.com/HilmyFausta" target="_blank" rel="noopener">GitHub</a>
-        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+      <div class="contact-links" id="contact-links"></div>
     </div>
   </section>
 
@@ -258,6 +122,8 @@
 
 <footer>© 2026 Hilmy Fausta Pratama.</footer>
 
+<script src="js/data.js"></script>
+<script src="js/render.js"></script>
 <script src="js/main.js"></script>
 <script src="js/game.js"></script>
 </body>
