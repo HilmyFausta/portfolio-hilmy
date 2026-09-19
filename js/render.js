@@ -61,7 +61,7 @@ function renderProjects() {
   const el = document.getElementById('project-grid');
   if (!el) return;
   el.innerHTML = PROJECTS.map((p, i) => `
-    <a class="project-card${i === 0 ? ' feature' : ''}" href="project.html?slug=${p.slug}">
+    <a class="project-card" href="project.html?slug=${p.slug}">
       <div class="project-media">
         <img src="${p.image}" alt="${p.title}" loading="lazy" data-placeholder-label="${p.image}">
       </div>

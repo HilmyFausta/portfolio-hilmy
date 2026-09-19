@@ -206,10 +206,6 @@ p{ margin: 0; color: var(--ink-soft); }
   display: inline-flex; align-items: center; justify-content: center;
   font-size: .62rem; font-weight: 800;
 }
-.skill-chip.just-caught{
-  background: var(--coral-soft);
-  border-color: var(--coral);
-}
 
 /* ---------- Experience ---------- */
 .timeline{ position: relative; padding-left: var(--space-4); }
@@ -251,7 +247,6 @@ p{ margin: 0; color: var(--ink-soft); }
   gap: var(--space-3);
 }
 .project-card{
-  grid-column: span 1;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
@@ -261,15 +256,10 @@ p{ margin: 0; color: var(--ink-soft); }
   transition: box-shadow .15s ease, transform .15s ease;
 }
 .project-card:hover{ transform: translateY(-3px); box-shadow: 0 12px 24px -16px rgba(22,33,62,.35); }
-.project-card.feature{ grid-column: span 2; flex-direction: row; }
-.project-card.feature .project-media{ flex: 1.1; }
-.project-card.feature .project-body{ flex: .9; }
 @media (max-width: 780px){
   .project-grid{ grid-template-columns: 1fr; }
-  .project-card.feature{ flex-direction: column; }
 }
 .project-media{ aspect-ratio: 16/10; }
-.project-card.feature .project-media{ aspect-ratio: auto; }
 .project-media img{ width: 100%; height: 100%; object-fit: cover; }
 .project-media .ph-missing{ height: 100%; }
 .project-body{ padding: var(--space-3); display: flex; flex-direction: column; gap: 8px; }

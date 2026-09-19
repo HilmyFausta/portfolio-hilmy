@@ -190,7 +190,6 @@
     let basketX = 0;
     let falling = [];
     let caughtCount = 0;
-    let caughtSlugs = new Set();
     let lastSpawn = 0;
     let startTime = 0;
     let running = false;
@@ -232,7 +231,6 @@
             sfxObstacle();
           } else {
             caughtCount++;
-            caughtSlugs.add(f.slug);
             scoreEl.textContent = caughtCount;
             sfxCatch();
           }
@@ -376,15 +374,7 @@
       if (rafIdRef) cancelAnimationFrame(rafIdRef);
       if (musicTimerRef) clearTimeout(musicTimerRef);
       sfxEnd();
-      highlightCaughtSkills();
       if (endScreen) endScreen.hidden = false;
-    }
-
-    function highlightCaughtSkills() {
-      caughtSlugs.forEach((slug) => {
-        const chip = document.querySelector(`.skill-chip[data-slug="${slug}"]`);
-        if (chip) chip.classList.add('just-caught');
-      });
     }
 
     function closeGame(markSeen) {
