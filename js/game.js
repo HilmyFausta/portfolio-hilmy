@@ -127,14 +127,14 @@
     }
 
     function sfxCatch() {
-      playTone(660, 0.1, 'sine', 0.44);
-      setTimeout(() => playTone(920, 0.1, 'sine', 0.36), 45);
+      playTone(660, 0.1, 'sine', 0.60);
+      setTimeout(() => playTone(920, 0.1, 'sine', 0.56), 45);
     }
     function sfxObstacle() {
-      playTone(110, 0.22, 'sawtooth', 0.40);
+      playTone(110, 0.22, 'sawtooth', 0.60);
     }
     function sfxEnd() {
-      [523, 659, 784].forEach((f, i) => setTimeout(() => playTone(f, 0.16, 'sine', 0.28), i * 90));
+      [523, 659, 784].forEach((f, i) => setTimeout(() => playTone(f, 0.16, 'sine', 0.48), i * 90));
     }
 
     // Gentle, relaxed looping background melody — low volume, synthesised.
@@ -146,7 +146,7 @@
         return;
       }
       const freq = MUSIC_NOTES[musicStep % MUSIC_NOTES.length];
-      playTone(freq, 0.55, 'sine', 0.20);
+      playTone(freq, 0.55, 'sine', 0.40);
       musicStep++;
       musicTimerRef = setTimeout(scheduleMusic, 560);
     }
