@@ -57,9 +57,13 @@ a{ color: inherit; }
   padding: 0 var(--space-3);
 }
 
-section{ padding: var(--space-6) 0; }
+/* Every <section> also carries class="wrap" (for max-width),
+   and .wrap's own padding shorthand zeroes out top/bottom padding
+   at equal-or-lower specificity — so plain `section{padding:...}`
+   never actually applied. section.wrap bumps specificity to win. */
+section.wrap{ padding-top: var(--space-6); padding-bottom: var(--space-6); }
 @media (max-width: 640px){
-  section{ padding: var(--space-5) 0; }
+  section.wrap{ padding-top: var(--space-5); padding-bottom: var(--space-5); }
 }
 
 /* ---------- Typography ---------- */
@@ -74,7 +78,7 @@ p{ margin: 0; color: var(--ink-soft); }
   align-items: flex-end;
   justify-content: space-between;
   gap: var(--space-3);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-2);
   border-bottom: 1px solid var(--line);
   padding-bottom: var(--space-2);
 }
