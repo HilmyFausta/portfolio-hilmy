@@ -92,7 +92,7 @@
 
     // ---------- Sound (synthesised, no audio files needed) ----------
     let audioCtx = null;
-    let muted = false;
+    let muted = true;
     let musicStarted = false;
 
     function ensureAudio() {
@@ -154,6 +154,9 @@
     if (muteBtn) {
       muteBtn.addEventListener('click', () => {
         muted = !muted;
+        // Turning sound ON is itself the required user gesture —
+        // safe to create/resume the AudioContext right here.
+        if (!muted) ensureAudio();
         muteBtn.textContent = muted ? 'Suara: Mati' : 'Suara: Aktif';
         muteBtn.setAttribute('aria-pressed', muted ? 'true' : 'false');
       });
@@ -364,19 +367,6 @@
       canvas.addEventListener('touchstart', onPointerMove, { passive: true });
       canvas.addEventListener('touchmove', onPointerMove, { passive: true });
       window.addEventListener('keydown', onKeyDown);
-
-      // Browsers only allow audio after a genuine discrete gesture
-      // (click/tap/keypress) — NOT a plain mousemove/touchmove. Unlock
-      // audio on the first of any of these, once, then stop listening.
-      const unlockAudio = () => {
-        ensureAudio();
-        const hint = document.getElementById('audio-hint');
-        if (hint) hint.hidden = true;
-        overlay.removeEventListener('pointerdown', unlockAudio);
-        overlay.removeEventListener('keydown', unlockAudio);
-      };
-      overlay.addEventListener('pointerdown', unlockAudio);
-      overlay.addEventListener('keydown', unlockAudio);
 
       rafIdRef = requestAnimationFrame(loop);
     }

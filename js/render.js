@@ -16,7 +16,7 @@ function renderSkills() {
   const el = document.getElementById('skills-grid');
   if (!el) return;
   el.innerHTML = SKILLS.map((s) => `
-    <span class="skill-chip" data-slug="${s.slug}">${iconImgHtml(s)}${s.name}</span>
+    <a class="skill-chip" data-slug="${s.slug}" href="${s.url || '#'}" target="_blank" rel="noopener">${iconImgHtml(s)}${s.name}</a>
   `).join('');
 }
 

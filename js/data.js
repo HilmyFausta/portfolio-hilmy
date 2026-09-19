@@ -11,24 +11,24 @@
 // Icons, add a `src` field instead with a direct image URL (see the
 // "azure" example below, which uses a Devicon icon).
 const SKILLS = [
-  { slug: 'docker', name: 'Docker' },
-  { slug: 'nginx', name: 'Nginx' },
-  { slug: 'linux', name: 'Linux' },
-  { slug: 'github', name: 'Git & GitHub' },
-  { slug: 'n8n', name: 'n8n' },
-  { slug: 'whatsapp', name: 'WhatsApp API' },
-  { slug: 'ollama', name: 'Ollama' },
-  { slug: 'azure', name: 'Azure', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-plain.svg' },
-  { slug: 'librenms', name: 'LibreNMS', src: 'https://raw.githubusercontent.com/librenms/librenms/master/html/images/librenms.svg' },
-  { slug: 'manageengine', name: 'ManageEngine', emoji: true }, // no public logo found — falls back to a plain label
-  { slug: 'ubiquiti', name: 'UniFi' },
-  { slug: 'html5', name: 'HTML5' },
-  { slug: 'css', name: 'CSS3' },
-  { slug: 'javascript', name: 'JavaScript' },
-  { slug: 'c', name: 'C' },
-  { slug: 'cplusplus', name: 'C++' },
-  { slug: 'postgresql', name: 'PostgreSQL' },
-  { slug: 'python', name: 'Python' }
+  { slug: 'docker', name: 'Docker', url: 'https://www.docker.com' },
+  { slug: 'nginx', name: 'Nginx', url: 'https://nginx.org' },
+  { slug: 'linux', name: 'Linux', url: 'https://www.linux.org' },
+  { slug: 'github', name: 'Git & GitHub', url: 'https://github.com' },
+  { slug: 'n8n', name: 'n8n', url: 'https://n8n.io' },
+  { slug: 'whatsapp', name: 'WhatsApp API', url: 'https://business.whatsapp.com/products/business-platform' },
+  { slug: 'ollama', name: 'Ollama', url: 'https://ollama.com' },
+  { slug: 'azure', name: 'Azure', url: 'https://azure.microsoft.com', src: 'https://raw.githubusercontent.com/devicons/devicon/master/icons/azure/azure-plain.svg' },
+  { slug: 'librenms', name: 'LibreNMS', url: 'https://www.librenms.org', src: 'https://raw.githubusercontent.com/librenms/librenms/master/html/images/librenms.svg' },
+  { slug: 'manageengine', name: 'ManageEngine', url: 'https://www.manageengine.com', emoji: true }, // no public logo found — falls back to a plain label
+  { slug: 'ubiquiti', name: 'UniFi', url: 'https://www.ui.com' },
+  { slug: 'html5', name: 'HTML5', url: 'https://developer.mozilla.org/en-US/docs/Web/HTML' },
+  { slug: 'css', name: 'CSS3', url: 'https://developer.mozilla.org/en-US/docs/Web/CSS' },
+  { slug: 'javascript', name: 'JavaScript', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript' },
+  { slug: 'c', name: 'C', url: 'https://en.wikipedia.org/wiki/C_(programming_language)' },
+  { slug: 'cplusplus', name: 'C++', url: 'https://isocpp.org' },
+  { slug: 'postgresql', name: 'PostgreSQL', url: 'https://www.postgresql.org' },
+  { slug: 'python', name: 'Python', url: 'https://www.python.org' }
 ];
 
 // ---------- Experience & Organization ----------
