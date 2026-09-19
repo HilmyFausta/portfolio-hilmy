@@ -25,15 +25,25 @@ function renderExperience() {
   if (!el) return;
   el.innerHTML = EXPERIENCE.map((item) => {
     const programsHtml = item.programs && item.programs.length
-      ? `<div class="proker-grid">${item.programs.map((p) => `
-          <a class="proker-card" href="${p.link}" target="_blank" rel="noopener">
+      ? `<div class="proker-grid">${item.programs.map((p) => {
+          // Only make it a real link once a real URL is set in data.js —
+          // otherwise render the same card as a plain non-clicking div,
+          // so a placeholder "#" link can't accidentally open a blank
+          // new tab (which also looks like the game "reappearing",
+          // since a new tab is a fresh session).
+          const hasLink = p.link && p.link !== '#';
+          const tag = hasLink ? 'a' : 'div';
+          const linkAttrs = hasLink ? `href="${p.link}" target="_blank" rel="noopener"` : '';
+          return `
+          <${tag} class="proker-card" ${linkAttrs}>
             <img src="${p.image}" alt="${p.title}" loading="lazy" data-placeholder-label="${p.image}">
             <div class="proker-card-body">
               <h4>${p.title}</h4>
               <p>${p.description}</p>
             </div>
-          </a>
-        `).join('')}</div>`
+          </${tag}>
+        `;
+        }).join('')}</div>`
       : '';
     return `
       <div class="tl-item">

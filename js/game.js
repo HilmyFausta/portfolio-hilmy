@@ -127,11 +127,11 @@
     }
 
     function sfxCatch() {
-      playTone(660, 0.1, 'sine', 0.16);
-      setTimeout(() => playTone(920, 0.1, 'sine', 0.13), 45);
+      playTone(660, 0.1, 'sine', 0.22);
+      setTimeout(() => playTone(920, 0.1, 'sine', 0.18), 45);
     }
     function sfxObstacle() {
-      playTone(110, 0.22, 'sawtooth', 0.15);
+      playTone(110, 0.22, 'sawtooth', 0.20);
     }
     function sfxEnd() {
       [523, 659, 784].forEach((f, i) => setTimeout(() => playTone(f, 0.16, 'sine', 0.14), i * 90));
@@ -146,7 +146,7 @@
         return;
       }
       const freq = MUSIC_NOTES[musicStep % MUSIC_NOTES.length];
-      playTone(freq, 0.55, 'sine', 0.035);
+      playTone(freq, 0.55, 'sine', 0.06);
       musicStep++;
       musicTimerRef = setTimeout(scheduleMusic, 560);
     }
@@ -341,13 +341,11 @@
     }
 
     function onPointerMove(e) {
-      ensureAudio();
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       setBasketFromClientX(clientX);
     }
 
     function onKeyDown(e) {
-      ensureAudio();
       const step = W * 0.05;
       if (e.key === 'ArrowLeft') basketX = Math.max(basketW / 2, basketX - step);
       if (e.key === 'ArrowRight') basketX = Math.min(W - basketW / 2, basketX + step);
@@ -366,6 +364,17 @@
       canvas.addEventListener('touchstart', onPointerMove, { passive: true });
       canvas.addEventListener('touchmove', onPointerMove, { passive: true });
       window.addEventListener('keydown', onKeyDown);
+
+      // Browsers only allow audio after a genuine discrete gesture
+      // (click/tap/keypress) — NOT a plain mousemove/touchmove. Unlock
+      // audio on the first of any of these, once, then stop listening.
+      const unlockAudio = () => {
+        ensureAudio();
+        overlay.removeEventListener('pointerdown', unlockAudio);
+        overlay.removeEventListener('keydown', unlockAudio);
+      };
+      overlay.addEventListener('pointerdown', unlockAudio);
+      overlay.addEventListener('keydown', unlockAudio);
 
       rafIdRef = requestAnimationFrame(loop);
     }
