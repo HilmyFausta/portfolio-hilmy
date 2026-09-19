@@ -308,6 +308,18 @@ footer{ text-align: center; padding: var(--space-4) 0; color: var(--ink-soft); f
   color: var(--cream); border-radius: 999px; padding: 8px 16px;
   font-weight: 700; font-size: .85rem; cursor: pointer;
 }
+.audio-hint{
+  font-size: .78rem; color: var(--coral); font-weight: 700;
+  align-self: center; animation: hintPulse 1.4s ease-in-out infinite;
+}
+.audio-hint[hidden]{ display: none; }
+@keyframes hintPulse{
+  0%, 100% { opacity: .55; }
+  50% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce){
+  .audio-hint{ animation: none; }
+}
 #game-canvas{ flex: 1; width: 100%; touch-action: none; }
 .game-hint{
   text-align: center; padding-bottom: var(--space-2);

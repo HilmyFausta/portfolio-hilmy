@@ -370,6 +370,8 @@
       // audio on the first of any of these, once, then stop listening.
       const unlockAudio = () => {
         ensureAudio();
+        const hint = document.getElementById('audio-hint');
+        if (hint) hint.hidden = true;
         overlay.removeEventListener('pointerdown', unlockAudio);
         overlay.removeEventListener('keydown', unlockAudio);
       };
