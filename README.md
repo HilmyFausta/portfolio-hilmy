@@ -54,11 +54,29 @@ Buka `index.html` langsung di browser, atau:
 python3 -m http.server 8080
 ```
 
-## Build & jalankan lewat Docker
+## Build & jalankan lewat Docker (deploy ke VM di belakang Load Balancer)
+
+**Wajib jalanin `bundle.py` dulu sebelum `docker build`.** Load Balancer
+kerja per-koneksi TCP, bukan per-halaman — kalau CSS/JS masih file
+terpisah, browser bisa "dilempar" ke VM lain di tengah loading satu
+halaman (VM lain isinya portofolio orang lain). `bundle.py` menggabungkan
+semua CSS+JS jadi inline di dalam satu file HTML, jadi cuma ada 1
+request per kunjungan — nggak ada celah buat ke-split ke VM lain.
 
 ```bash
+python3 bundle.py
 docker build -t portfolio-hilmy .
-docker run -d --name portfolio -p 8080:8080 portfolio-hilmy
+docker run -d --name portfolio -p 8080:8080 --restart unless-stopped portfolio-hilmy
 ```
 
 Lalu buka `http://localhost:8080`.
+
+`bundle.py` cuma MEMBACA `index.html`/`css/`/`js/` dan nulis hasil
+gabungannya ke folder `dist/` (nggak ngubah source aslinya sama
+sekali) — jadi tetap edit `js/data.js` seperti biasa buat nambah
+konten, lalu jalanin ulang `bundle.py` sebelum build/deploy berikutnya.
+
+**Kalau cuma buat preview di Vercel** (bukan di belakang Load
+Balancer), nggak perlu `bundle.py` sama sekali — Vercel bukan
+multi-VM, jadi nggak kena masalah ini. Struktur multi-file yang
+sekarang udah langsung jalan normal di situ.
